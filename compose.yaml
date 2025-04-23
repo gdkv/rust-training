@@ -1,0 +1,6 @@
+services:
+  test-app:
+    container_name: test-app
+    image: rust:alpine3.20
+    volumes:
+      - ./:/usr/src/test-app
