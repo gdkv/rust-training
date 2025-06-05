@@ -1,34 +1,21 @@
 fn main() {
     let mut input: String = String::new();
-    let mut num_count: u8 = 0;
+    // let mut num_count: u32 = 0;
 
     std::io::stdin()
         .read_line(&mut input)
         .expect("Ошибка при чтении ввода.");
 
-    for ch in input.trim().chars() {
-        if ch.is_numeric() {
-            num_count += 1;
-        }
-    }
+    // let mut is_palindrome: bool = true;
+    let mut ch1: Vec<&str> = input.trim().split("").collect();
+    let ch2 = ch1.reverse();
 
-    // while input.trim() != stop.trim() {
-    //     input.clear();
-    //     std::io::stdin()
-    //         .read_line(&mut input)
-    //         .expect("Ошибка при чтении ввода.");
-    //
-    //     if input.trim() == stop.trim() {
-    //         continue;
-    //     }
-    //
-    //     let number: f64 = match input.trim().parse() {
-    //         Ok(num) => num,
-    //         Err(_) => continue,
-    //     };
-    //
-    //     total_count += number;
+    println!("{:?}", ch1);
+    // for (x, y) in , input.trim().chars().rev() {
+    //     println!("x: {}, y: {}", x, y);
     // }
 
-    println!("{:.1}", total_count);
+    // println!("Число {} {}является палиндромом", input.trim(), if is_palindrome { "" } else { "не " });
+
+
 }
