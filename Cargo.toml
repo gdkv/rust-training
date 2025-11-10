@@ -5,4 +5,4 @@ version = "0.1.0"
 
 [[bin]]
 name = "test-app"
-path = "src/lessons/lesson104.rs"
+path = "src/inzenerka/lesson2.rs"

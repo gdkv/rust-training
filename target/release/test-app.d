@@ -1,1 +1,1 @@
-/usr/src/test-app/target/release/test-app: /usr/src/test-app/src/lessons/lesson104.rs
+/usr/src/test-app/target/release/test-app: /usr/src/test-app/src/inzenerka/lesson2.rs
