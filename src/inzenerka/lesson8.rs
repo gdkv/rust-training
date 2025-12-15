@@ -1,23 +1,27 @@
 use std::fs;
+use std::io::Error;
 
-fn extract_errors(text: &str) -> Vec<String> {
-    let text_array = text.split("\n").collect();
-    let mut errors: Vec<String> = vec![];
+fn extract_errors(text: &str) -> Result<Vec<String>, Error> {
+    let text_array: Vec<&str> = text.split("\n").collect();
+    let mut errors_list: Vec<String> = vec![];
 
-    for item in text_array {
-        if item.starts_with("ERR") {
-            errors.push(item.to_string());
+    if text_array.len() > 0 {
+        for item in text_array {
+            if item.starts_with("ERR") {
+                errors_list.push(item.to_string());
+            }
         }
+    } else {
+
+        return Err(Error::other("No errors found"))
     }
 
-    errors
+    Ok(errors_list)
 }
-fn main() {
-    let mut errors: Vec<String> = vec![];
-    match fs::read_to_string("logs.txt") {
-        Ok(contents) => errors = extract_errors(contents.as_str()),
-        Err(_) => println!("Couldn't read logs.txt"),
-    }
+fn main() -> Result<(), Error> {
+    let contents = fs::read_to_string("logs.txt")?;
+    let errors: Vec<String> = extract_errors(contents.as_str())?;
+    fs::write("./src/inzenerka/content/errors.txt", errors.join("\n"))?;
 
-    println!("{:#?}", errors);
+    Ok(())
 }
