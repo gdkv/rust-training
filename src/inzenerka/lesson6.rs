@@ -1,5 +1,6 @@
 mod content;
 use content::config::Config;
+
 fn main() {
     let config = Config::load();
 
