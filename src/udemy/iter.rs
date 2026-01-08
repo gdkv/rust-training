@@ -1,5 +1,3 @@
-mod excercise;
-
 use std::io::Error;
 
 fn print_elements(elements: &[String]) -> Result<(), Error> {

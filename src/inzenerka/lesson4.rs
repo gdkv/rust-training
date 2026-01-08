@@ -3,13 +3,17 @@ use content::media::Media;
 use content::category::Category;
 use content::catalog::Catalog;
 
-// Написать функцию, принимающую слайс generic-объектов и выводящую на экран все элементы этого
-// слайса. Продемонстрировать, что данная функция работает с любыми типами, реализующими
-// необходимый трейт.
-//
-// Для вывода объектов на экран можно использовать трейт Printable из примеров выше. Данный трейт
-// потребуется реализовать на типах, которые будут использоваться при демонстрации.
 fn main() {
+    let category = Category {
+        id: 1,
+        title: String::from("test cat"),
+    };
+
+    let category2 = Category {
+        id: 2,
+        title: String::from("test cat 2222"),
+    };
+
     let media_1 = Media {
         id: 1,
         title: String::from("Test 1 Media"),
@@ -18,10 +22,7 @@ fn main() {
         is_active: false,
         length: 500,
         description: String::from("Test 1 Description"),
-        category: Category {
-            id: 1,
-            title: String::from("test cat"),
-        },
+        category: &category,
     };
 
     let media_2 = Media {
@@ -32,10 +33,7 @@ fn main() {
         is_active: false,
         length: 500,
         description: String::from("Test 22 Description"),
-        category: Category {
-            id: 2,
-            title: String::from("test cat"),
-        },
+        category: &category,
     };
 
     let media_3 = Media {
@@ -46,10 +44,7 @@ fn main() {
         is_active: true,
         length: 5100,
         description: String::from("Test 33 Description"),
-        category: Category {
-            id: 3,
-            title: String::from("test cat"),
-        },
+        category: &category2,
     };
 
     let mut catalog = Catalog::new();
@@ -60,7 +55,7 @@ fn main() {
 
     // println!("{:#?}", catalog.get_item_by_id(122));
 
-    match catalog.get_item_by_id(1) {
+    match catalog.get_item_by_id(55) {
         Some(media_item) => println!("{:#?}", media_item),
         None => println!("Nothing found"),
     }

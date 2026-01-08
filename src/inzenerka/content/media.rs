@@ -1,6 +1,6 @@
 use super::category::Category;
 #[derive(Debug)]
-pub struct Media {
+pub struct Media<'c> {
     pub id: u8,
     pub title: String,
     pub author: String,
@@ -8,5 +8,5 @@ pub struct Media {
     pub is_active: bool,
     pub length: u64,
     pub description: String,
-    pub category: Category,
+    pub category: &'c Category,
 }
