@@ -55,7 +55,7 @@ fn main() {
 
     // println!("{:#?}", catalog.get_item_by_id(122));
 
-    match catalog.get_item_by_id(55) {
+    match catalog.get_item_by_id(1) {
         Some(media_item) => println!("{:#?}", media_item),
         None => println!("Nothing found"),
     }
